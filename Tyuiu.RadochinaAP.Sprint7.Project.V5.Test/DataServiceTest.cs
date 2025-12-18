@@ -6,7 +6,7 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5.Test
     {
         [TestMethod]
         public void LoadProductsTest()
-        {
+        { 
             DataService ds = new DataService();
             var products = ds.LoadProducts();
 
