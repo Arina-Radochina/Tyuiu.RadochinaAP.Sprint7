@@ -4,9 +4,6 @@
     {
         private void InitializeComponent()
         {
-            // ... другой код выше ...
-
-            // richTextBoxCondition_PAA
             this.richTextBoxCondition_PAA = new System.Windows.Forms.RichTextBox();
             this.richTextBoxCondition_PAA.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richTextBoxCondition_PAA.Dock = System.Windows.Forms.DockStyle.Top;
@@ -19,7 +16,6 @@
             this.richTextBoxCondition_PAA.Size = new System.Drawing.Size(884, 150);
             this.richTextBoxCondition_PAA.TabIndex = 0;
 
-            // ВОТ ЭТУ СТРОКУ ДОБАВЬТЕ - ТЕКСТ УСЛОВИЯ
             this.richTextBoxCondition_PAA.Text = "УСЛОВИЕ ЗАДАЧИ (Вариант 11):\n" +
                 "--------------------------------------------------\n" +
                 "Дан файл InPutFileTask7V11.csv в котором хранится матрица целочисленных значений.\n\n" +
@@ -40,12 +36,8 @@
                 "• Пример: 1;2;-3;4;5\n" +
                 "      6;-7;8;9;-10";
 
-            // ... продолжение кода ниже ...
-
-            // Добавление RichTextBox на форму
             this.Controls.Add(this.richTextBoxCondition_PAA);
 
-            // ... остальной код формы ...
         }
 
         private System.Windows.Forms.RichTextBox richTextBoxCondition_PAA;
