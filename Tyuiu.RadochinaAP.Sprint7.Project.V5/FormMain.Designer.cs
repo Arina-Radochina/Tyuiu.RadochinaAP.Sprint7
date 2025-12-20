@@ -39,7 +39,7 @@
             this.Controls.Add(this.richTextBoxCondition_PAA);
 
         }
-
+         
         private System.Windows.Forms.RichTextBox richTextBoxCondition_PAA;
     }
 }
