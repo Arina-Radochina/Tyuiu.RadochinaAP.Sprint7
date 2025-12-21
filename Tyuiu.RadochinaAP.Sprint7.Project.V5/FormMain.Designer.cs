@@ -37,7 +37,7 @@
                 "      6;-7;8;9;-10";
 
             this.Controls.Add(this.richTextBoxCondition_PAA);
-
+              
         }
          
         private System.Windows.Forms.RichTextBox richTextBoxCondition_PAA;
