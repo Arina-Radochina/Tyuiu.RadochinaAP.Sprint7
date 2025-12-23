@@ -4,44 +4,95 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5.Test
     [TestClass]
     public class DataServiceTest
     {
-        [TestMethod]
-        public void ТестДанных_RAP()
+        private DataService GetService()
         {
-            // Создаем сервис
-            var сервис_RAP = new DataService();
+            return new DataService();
+        }
 
-            // Получаем тестовые данные
-            var данные_RAP = сервис_RAP.СоздатьТестовыеДанные_RAP();
-
-            // Проверяем
-            Assert.AreEqual(5, данные_RAP.Count); // Должно быть 5 товаров
-            Assert.AreEqual("Сахар", данные_RAP[0].Название_RAP); // Первый - сахар
+        private List<DataService.Product> GetTestData()
+        {
+            return new List<DataService.Product>
+            {
+                new DataService.Product { Code = "P001", Name = "Сахар", Quantity = 100, Price = 85.50m },
+                new DataService.Product { Code = "P002", Name = "Мука", Quantity = 50, Price = 62.30m },
+                new DataService.Product { Code = "P003", Name = "Соль", Quantity = 20, Price = 24.80m }
+            };
         }
 
         [TestMethod]
-        public void ТестПоиска_RAP()
+        public void TestSearchProducts()
         {
-            var сервис_RAP = new DataService();
-            var данные_RAP = сервис_RAP.СоздатьТестовыеДанные_RAP();
+            var service = GetService();
+            var data = GetTestData();
 
-            // Ищем "сахар"
-            var найденные_RAP = сервис_RAP.НайтиТовары_RAP(данные_RAP, "сахар");
+            var result = service.SearchProducts(data, "сах");
 
-            Assert.AreEqual(1, найденные_RAP.Count); // Найден 1 товар
-            Assert.AreEqual("П001", найденные_RAP[0].Код_RAP); // Код правильный
+            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual("Сахар", result[0].Name);
         }
 
         [TestMethod]
-        public void ТестСтатистики_RAP()
+        public void TestSortByName()
         {
-            var сервис_RAP = new DataService();
-            var данные_RAP = сервис_RAP.СоздатьТестовыеДанные_RAP();
+            var service = GetService();
+            var data = GetTestData();
 
-            string статистика_RAP = сервис_RAP.ПолучитьСтатистику_RAP(данные_RAP);
+            var result = service.SortByName(data);
 
-            // Проверяем, что статистика содержит нужные слова
-            Assert.IsTrue(статистика_RAP.Contains("Всего:"));
-            Assert.IsTrue(статистика_RAP.Contains("На складе:"));
+            Assert.AreEqual("Мука", result[0].Name);
+            Assert.AreEqual("Сахар", result[1].Name);
+            Assert.AreEqual("Соль", result[2].Name);
+        }
+
+        [TestMethod]
+        public void TestSortByPrice()
+        {
+            var service = GetService();
+            var data = GetTestData();
+
+            var result = service.SortByPrice(data);
+
+            Assert.IsTrue(result[0].Price <= result[1].Price);
+            Assert.IsTrue(result[1].Price <= result[2].Price);
+        }
+
+        [TestMethod]
+        public void TestFilterInStock()
+        {
+            var service = GetService();
+            var data = GetTestData();
+
+            var result = service.FilterInStock(data);
+
+            Assert.AreEqual(3, result.Count);
+            Assert.IsTrue(result.All(p => p.Quantity > 0));
+        }
+
+        [TestMethod]
+        public void TestGetStatistics()
+        {
+            var service = GetService();
+            var data = GetTestData();
+
+            var stats = service.GetStatistics(data);
+
+            Assert.AreEqual(3, stats.count);
+            Assert.AreEqual(170, stats.totalQty);
+            Assert.IsTrue(stats.totalValue > 0);
+        }
+
+        [TestMethod]
+        public void TestTotalValueCalculation()
+        {
+            var product = new DataService.Product
+            {
+                Code = "TEST",
+                Name = "Test",
+                Quantity = 10,
+                Price = 100.00m
+            };
+
+            Assert.AreEqual(1000.00m, product.TotalValue);
         }
     }
 }

@@ -1,190 +1,307 @@
 using Tyuiu.RadochinaAP.Sprint7.Project.V5.Lib;
 namespace Tyuiu.RadochinaAP.Sprint7.Project.V5
 {
-    public partial class FormMain_RAP : Form
+    public partial class FormMain : Form
     {
-        private DataService сервис_RAP = new DataService();
-        private List<DataService.Товар_RAP> товары_RAP = new List<DataService.Товар_RAP>();
-        private string текущийФайл_RAP = "";
+        private DataService service = new DataService();
+        private List<DataService.Product> products = new List<DataService.Product>();
+        private string currentFile = "";
 
-        public FormMain_RAP()
+        public FormMain()
         {
             InitializeComponent();
+            SetupGridView();
 
-            // Настраиваем таблицу
-            НастроитьТаблицу_RAP();
+            // Подсказки для кнопок
+            toolTip.SetToolTip(buttonOpen_RAP, "Открыть CSV файл с товарами");
+            toolTip.SetToolTip(buttonSave_RAP, "Сохранить товары в CSV файл");
+            toolTip.SetToolTip(buttonDemo_RAP, "Загрузить тестовые данные");
+            toolTip.SetToolTip(buttonAdd_RAP, "Добавить новый товар");
+            toolTip.SetToolTip(buttonDelete_RAP, "Удалить выбранный товар");
+            toolTip.SetToolTip(buttonSortName_RAP, "Сортировать по названию");
+            toolTip.SetToolTip(buttonSortPrice_RAP, "Сортировать по цене");
+            toolTip.SetToolTip(buttonFilter_RAP, "Показать только товары в наличии");
+            toolTip.SetToolTip(buttonReset_RAP, "Сбросить фильтры");
+            toolTip.SetToolTip(buttonHelp_RAP, "Открыть справку");
+            toolTip.SetToolTip(buttonAbout_RAP, "О программе");
 
-            // Показываем подсказку
-            MessageBox.Show("Добро пожаловать! Нажмите 'Демо' для тестовых данных.",
-                "Оптовая база", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Статус готовности
+            statusLabel_RAP.Text = "Готов к работе. Нажмите 'Демо' для тестовых данных.";
         }
 
-        private void НастроитьТаблицу_RAP()
+        private void SetupGridView()
         {
-            dataGridViewТовары_RAP.AutoGenerateColumns = false;
-            dataGridViewТовары_RAP.Columns.Clear();
+            dataGridView_RAP.AutoGenerateColumns = false;
+            dataGridView_RAP.Columns.Clear();
 
-            // Колонки таблицы
-            dataGridViewТовары_RAP.Columns.Add("Код_RAP", "Код");
-            dataGridViewТовары_RAP.Columns["Код_RAP"].DataPropertyName = "Код_RAP";
-            dataGridViewТовары_RAP.Columns["Код_RAP"].Width = 80;
+            dataGridView_RAP.Columns.Add("colCode_RAP", "Код");
+            dataGridView_RAP.Columns["colCode_RAP"].DataPropertyName = "Code";
+            dataGridView_RAP.Columns["colCode_RAP"].Width = 80;
 
-            dataGridViewТовары_RAP.Columns.Add("Название_RAP", "Название");
-            dataGridViewТовары_RAP.Columns["Название_RAP"].DataPropertyName = "Название_RAP";
-            dataGridViewТовары_RAP.Columns["Название_RAP"].Width = 150;
+            dataGridView_RAP.Columns.Add("colName_RAP", "Название");
+            dataGridView_RAP.Columns["colName_RAP"].DataPropertyName = "Name";
+            dataGridView_RAP.Columns["colName_RAP"].Width = 150;
 
-            dataGridViewТовары_RAP.Columns.Add("Количество_RAP", "Количество");
-            dataGridViewТовары_RAP.Columns["Количество_RAP"].DataPropertyName = "Количество_RAP";
-            dataGridViewТовары_RAP.Columns["Количество_RAP"].Width = 90;
+            dataGridView_RAP.Columns.Add("colQuantity_RAP", "Количество");
+            dataGridView_RAP.Columns["colQuantity_RAP"].DataPropertyName = "Quantity";
+            dataGridView_RAP.Columns["colQuantity_RAP"].Width = 90;
 
-            dataGridViewТовары_RAP.Columns.Add("Цена_RAP", "Цена");
-            dataGridViewТовары_RAP.Columns["Цена_RAP"].DataPropertyName = "Цена_RAP";
-            dataGridViewТовары_RAP.Columns["Цена_RAP"].Width = 80;
-            dataGridViewТовары_RAP.Columns["Цена_RAP"].DefaultCellStyle.Format = "C2";
+            dataGridView_RAP.Columns.Add("colPrice_RAP", "Цена");
+            dataGridView_RAP.Columns["colPrice_RAP"].DataPropertyName = "Price";
+            dataGridView_RAP.Columns["colPrice_RAP"].Width = 80;
+            dataGridView_RAP.Columns["colPrice_RAP"].DefaultCellStyle.Format = "C2";
 
-            dataGridViewТовары_RAP.Columns.Add("Примечание_RAP", "Примечание");
-            dataGridViewТовары_RAP.Columns["Примечание_RAP"].DataPropertyName = "Примечание_RAP";
-            dataGridViewТовары_RAP.Columns["Примечание_RAP"].Width = 200;
+            dataGridView_RAP.Columns.Add("colTotal_RAP", "Сумма");
+            dataGridView_RAP.Columns["colTotal_RAP"].DataPropertyName = "TotalValue";
+            dataGridView_RAP.Columns["colTotal_RAP"].Width = 90;
+            dataGridView_RAP.Columns["colTotal_RAP"].DefaultCellStyle.Format = "C2";
+
+            dataGridView_RAP.Columns.Add("colNotes_RAP", "Примечание");
+            dataGridView_RAP.Columns["colNotes_RAP"].DataPropertyName = "Notes";
+            dataGridView_RAP.Columns["colNotes_RAP"].Width = 200;
         }
 
-        private void ОбновитьТаблицу_RAP()
+        private void UpdateGridView()
         {
-            dataGridViewТовары_RAP.DataSource = null;
-            dataGridViewТовары_RAP.DataSource = товары_RAP;
-            ОбновитьСтатистику_RAP();
+            dataGridView_RAP.DataSource = null;
+            dataGridView_RAP.DataSource = products;
+            UpdateStatistics();
+            UpdateStatus();
         }
 
-        private void ОбновитьСтатистику_RAP()
+        private void UpdateStatistics()
         {
-            string статистика_RAP = сервис_RAP.ПолучитьСтатистику_RAP(товары_RAP);
-            labelСтатистика_RAP.Text = статистика_RAP;
-        }
-
-        // КНОПКА: Открыть файл
-        private void buttonОткрыть_RAP_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog диалог_RAP = new OpenFileDialog();
-            диалог_RAP.Filter = "CSV файлы|*.csv|Все файлы|*.*";
-
-            if (диалог_RAP.ShowDialog() == DialogResult.OK)
+            if (products.Count == 0)
             {
-                текущийФайл_RAP = диалог_RAP.FileName;
-                товары_RAP = сервис_RAP.ПрочитатьCSV_RAP(текущийФайл_RAP);
-                ОбновитьТаблицу_RAP();
+                labelCount_RAP.Text = "Товаров: 0";
+                labelTotalValue_RAP.Text = "Общая стоимость: 0 ?";
+                labelAvgPrice_RAP.Text = "Средняя цена: 0 ?";
+                labelOutOfStock_RAP.Text = "Нет в наличии: 0";
+                return;
+            }
 
-                MessageBox.Show($"Загружено {товары_RAP.Count} товаров", "Успех");
+            var stats = service.GetStatistics(products);
+
+            labelCount_RAP.Text = $"Товаров: {stats.count}";
+            labelTotalValue_RAP.Text = $"Общая стоимость: {stats.totalValue:C}";
+            labelAvgPrice_RAP.Text = $"Средняя цена: {stats.avgPrice:C}";
+            labelOutOfStock_RAP.Text = $"Нет в наличии: {stats.outOfStock}";
+        }
+
+        private void UpdateStatus()
+        {
+            statusLabel_RAP.Text = $"Загружено {products.Count} товаров. " +
+                                 $"Файл: {Path.GetFileName(currentFile) ?? "демо данные"}";
+        }
+
+        // ========== КНОПКИ ==========
+
+        private void buttonOpen_RAP_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "CSV файлы|*.csv|Все файлы|*.*";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    currentFile = dialog.FileName;
+                    products = service.LoadFromCSV(currentFile);
+                    UpdateGridView();
+                    MessageBox.Show($"Загружено {products.Count} товаров", "Успешно");
+                }
             }
         }
 
-        // КНОПКА: Сохранить файл
-        private void buttonСохранить_RAP_Click(object sender, EventArgs e)
+        private void buttonSave_RAP_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(текущийФайл_RAP))
+            if (products.Count == 0)
             {
-                SaveFileDialog диалог_RAP = new SaveFileDialog();
-                диалог_RAP.Filter = "CSV файлы|*.csv";
-                диалог_RAP.FileName = "товары.csv";
-
-                if (диалог_RAP.ShowDialog() == DialogResult.OK)
-                    текущийФайл_RAP = диалог_RAP.FileName;
-                else
-                    return;
+                MessageBox.Show("Нет данных для сохранения", "Внимание");
+                return;
             }
 
-            сервис_RAP.ЗаписатьCSV_RAP(текущийФайл_RAP, товары_RAP);
-            MessageBox.Show($"Сохранено {товары_RAP.Count} товаров", "Успех");
-        }
-
-        // КНОПКА: Демо данные
-        private void buttonДемо_RAP_Click(object sender, EventArgs e)
-        {
-            товары_RAP = сервис_RAP.СоздатьТестовыеДанные_RAP();
-            ОбновитьТаблицу_RAP();
-        }
-
-        // КНОПКА: Добавить товар
-        private void buttonДобавить_RAP_Click(object sender, EventArgs e)
-        {
-            // Простая форма для добавления
-            using (Form ввод_RAP = new Form())
+            if (string.IsNullOrEmpty(currentFile))
             {
-                ввод_RAP.Text = "Новый товар";
-                ввод_RAP.Size = new System.Drawing.Size(300, 250);
+                using (SaveFileDialog dialog = new SaveFileDialog())
+                {
+                    dialog.Filter = "CSV файлы|*.csv";
+                    dialog.FileName = "products.csv";
 
-                TextBox полеКод_RAP = new TextBox { Location = new System.Drawing.Point(10, 30), Width = 260, Text = "П" + (товары_RAP.Count + 1).ToString("000") };
-                TextBox полеНазвание_RAP = new TextBox { Location = new System.Drawing.Point(10, 70), Width = 260, Text = "Новый товар" };
-                NumericUpDown полеКоличество_RAP = new NumericUpDown { Location = new System.Drawing.Point(10, 110), Width = 260, Minimum = 0, Maximum = 10000 };
-                NumericUpDown полеЦена_RAP = new NumericUpDown { Location = new System.Drawing.Point(10, 150), Width = 260, Minimum = 0, Maximum = 1000000, DecimalPlaces = 2 };
+                    if (dialog.ShowDialog() == DialogResult.OK)
+                        currentFile = dialog.FileName;
+                    else
+                        return;
+                }
+            }
 
-                Button кнопкаОК_RAP = new Button { Text = "Добавить", Location = new System.Drawing.Point(10, 190), DialogResult = DialogResult.OK };
-                Button кнопкаОтмена_RAP = new Button { Text = "Отмена", Location = new System.Drawing.Point(120, 190), DialogResult = DialogResult.Cancel };
+            service.SaveToCSV(currentFile, products);
+            MessageBox.Show($"Сохранено {products.Count} товаров", "Успешно");
+        }
 
-                ввод_RAP.Controls.AddRange(new Control[] {
-                    new Label { Text = "Код:", Location = new System.Drawing.Point(10, 10) },
-                    полеКод_RAP,
-                    new Label { Text = "Название:", Location = new System.Drawing.Point(10, 50) },
-                    полеНазвание_RAP,
-                    new Label { Text = "Количество:", Location = new System.Drawing.Point(10, 90) },
-                    полеКоличество_RAP,
-                    new Label { Text = "Цена:", Location = new System.Drawing.Point(10, 130) },
-                    полеЦена_RAP,
-                    кнопкаОК_RAP,
-                    кнопкаОтмена_RAP
+        private void buttonDemo_RAP_Click(object sender, EventArgs e)
+        {
+            products = service.GetDemoData();
+            currentFile = "";
+            textBoxSearch_RAP.Text = "";
+            UpdateGridView();
+            MessageBox.Show("Загружены демонстрационные данные", "Демо");
+        }
+
+        private void buttonAdd_RAP_Click(object sender, EventArgs e)
+        {
+            // Простая форма добавления
+            using (Form addForm = new Form())
+            {
+                addForm.Text = "Добавить товар";
+                addForm.Size = new System.Drawing.Size(300, 200);
+                addForm.StartPosition = FormStartPosition.CenterParent;
+
+                TextBox txtCode = new TextBox { Location = new System.Drawing.Point(100, 20), Width = 150 };
+                TextBox txtName = new TextBox { Location = new System.Drawing.Point(100, 50), Width = 150 };
+                NumericUpDown numQuantity = new NumericUpDown
+                {
+                    Location = new System.Drawing.Point(100, 80),
+                    Width = 150,
+                    Minimum = 0,
+                    Maximum = 10000
+                };
+                NumericUpDown numPrice = new NumericUpDown
+                {
+                    Location = new System.Drawing.Point(100, 110),
+                    Width = 150,
+                    Minimum = 0,
+                    Maximum = 1000000,
+                    DecimalPlaces = 2
+                };
+
+                // Автоматический код
+                txtCode.Text = "P" + (products.Count + 101).ToString("000");
+
+                Button btnOK = new Button
+                {
+                    Text = "Добавить",
+                    Location = new System.Drawing.Point(80, 140),
+                    DialogResult = DialogResult.OK
+                };
+                Button btnCancel = new Button
+                {
+                    Text = "Отмена",
+                    Location = new System.Drawing.Point(170, 140),
+                    DialogResult = DialogResult.Cancel
+                };
+
+                addForm.Controls.AddRange(new Control[] {
+                    new Label { Text = "Код:", Location = new System.Drawing.Point(20, 23) },
+                    txtCode,
+                    new Label { Text = "Название:", Location = new System.Drawing.Point(20, 53) },
+                    txtName,
+                    new Label { Text = "Количество:", Location = new System.Drawing.Point(20, 83) },
+                    numQuantity,
+                    new Label { Text = "Цена:", Location = new System.Drawing.Point(20, 113) },
+                    numPrice,
+                    btnOK,
+                    btnCancel
                 });
 
-                if (ввод_RAP.ShowDialog() == DialogResult.OK)
+                if (addForm.ShowDialog() == DialogResult.OK)
                 {
-                    товары_RAP.Add(new DataService.Товар_RAP
+                    products.Add(new DataService.Product
                     {
-                        Код_RAP = полеКод_RAP.Text,
-                        Название_RAP = полеНазвание_RAP.Text,
-                        Количество_RAP = (int)полеКоличество_RAP.Value,
-                        Цена_RAP = (decimal)полеЦена_RAP.Value,
-                        Примечание_RAP = ""
+                        Code = txtCode.Text,
+                        Name = txtName.Text,
+                        Quantity = (int)numQuantity.Value,
+                        Price = numPrice.Value,
+                        Notes = ""
                     });
 
-                    ОбновитьТаблицу_RAP();
+                    UpdateGridView();
                 }
             }
         }
 
-        // КНОПКА: Удалить товар
-        private void buttonУдалить_RAP_Click(object sender, EventArgs e)
+        private void buttonDelete_RAP_Click(object sender, EventArgs e)
         {
-            if (dataGridViewТовары_RAP.CurrentRow != null)
+            if (dataGridView_RAP.CurrentRow == null)
             {
-                var товар_RAP = (DataService.Товар_RAP)dataGridViewТовары_RAP.CurrentRow.DataBoundItem;
+                MessageBox.Show("Выберите товар для удаления", "Внимание");
+                return;
+            }
 
-                if (MessageBox.Show($"Удалить товар {товар_RAP.Название_RAP}?",
-                    "Подтверждение", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    товары_RAP.Remove(товар_RAP);
-                    ОбновитьТаблицу_RAP();
-                }
+            var product = (DataService.Product)dataGridView_RAP.CurrentRow.DataBoundItem;
+
+            if (MessageBox.Show($"Удалить товар '{product.Name}'?", "Подтверждение",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                products.Remove(product);
+                UpdateGridView();
             }
         }
 
-        // ПОИСК: При изменении текста
-        private void textBoxПоиск_RAP_TextChanged(object sender, EventArgs e)
+        private void buttonSortName_RAP_Click(object sender, EventArgs e)
         {
-            var найденные_RAP = сервис_RAP.НайтиТовары_RAP(товары_RAP, textBoxПоиск_RAP.Text);
-            dataGridViewТовары_RAP.DataSource = найденные_RAP;
+            products = service.SortByName(products);
+            UpdateGridView();
         }
 
-        // КНОПКА: О программе
-        private void buttonОПрограмме_RAP_Click(object sender, EventArgs e)
+        private void buttonSortPrice_RAP_Click(object sender, EventArgs e)
+        {
+            products = service.SortByPrice(products);
+            UpdateGridView();
+        }
+
+        private void buttonFilter_RAP_Click(object sender, EventArgs e)
+        {
+            var filtered = service.FilterInStock(products);
+            dataGridView_RAP.DataSource = filtered;
+            statusLabel_RAP.Text = $"Показано {filtered.Count} товаров (только в наличии)";
+        }
+
+        private void buttonReset_RAP_Click(object sender, EventArgs e)
+        {
+            textBoxSearch_RAP.Text = "";
+            UpdateGridView();
+        }
+
+        private void textBoxSearch_RAP_TextChanged(object sender, EventArgs e)
+        {
+            var filtered = service.SearchProducts(products, textBoxSearch_RAP.Text);
+            dataGridView_RAP.DataSource = filtered;
+        }
+
+        private void buttonHelp_RAP_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "Оптовая база товаров\n" +
-                "Версия 1.0\n\n" +
-                "Функции:\n" +
-                "1. Загрузка/сохранение CSV\n" +
-                "2. Просмотр товаров\n" +
-                "3. Добавление/удаление\n" +
-                "4. Поиск и статистика\n\n" +
+                "=== РУКОВОДСТВО ПОЛЬЗОВАТЕЛЯ ===\n\n" +
+                "1. Открыть - загрузить товары из CSV файла\n" +
+                "2. Сохранить - сохранить в CSV файл\n" +
+                "3. Демо - тестовые данные\n" +
+                "4. Добавить - новый товар\n" +
+                "5. Удалить - выбранный товар\n" +
+                "6. Сортировка - по названию или цене\n" +
+                "7. Поиск - по коду или названию\n" +
+                "8. Фильтр - только в наличии\n\n" +
+                "Формат CSV: Code;Name;Quantity;Price;Notes",
+                "Справка",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        private void buttonAbout_RAP_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Оптовая база - Управление товарами\n" +
+                "Вариант 5\n\n" +
                 "Разработчик: Радочина А.П.\n" +
-                "Вариант 5",
-                "О программе");
+                "Проект: Sprint7.Project.V5\n\n" +
+                "Все права защищены © 2024",
+                "О программе",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        private void buttonExit_RAP_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
