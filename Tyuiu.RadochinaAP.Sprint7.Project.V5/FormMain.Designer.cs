@@ -22,12 +22,10 @@
     private System.Windows.Forms.Button buttonHelp_RAP;
     private System.Windows.Forms.Button buttonAbout_RAP;
     private System.Windows.Forms.Button buttonExit_RAP;
-
-    // Поиск
     private System.Windows.Forms.TextBox textBoxSearch_RAP;
     private System.Windows.Forms.Label labelSearch_RAP;
 
-    // Статистика
+    
     private System.Windows.Forms.Panel panelStats_RAP;
     private System.Windows.Forms.Label labelCount_RAP;
     private System.Windows.Forms.Label labelTotalValue_RAP;
@@ -35,11 +33,10 @@
     private System.Windows.Forms.Label labelOutOfStock_RAP;
     private System.Windows.Forms.Label labelStatsTitle_RAP;
 
-    // Статус бар
+    
     private System.Windows.Forms.StatusStrip statusStrip_RAP;
     private System.Windows.Forms.ToolStripStatusLabel statusLabel_RAP;
 
-    // Заголовок
     private System.Windows.Forms.Label labelTitle_RAP;
 
     protected override void Dispose(bool disposing)
@@ -331,7 +328,7 @@
             this.labelTitle_RAP.TabIndex = 6;
             this.labelTitle_RAP.Text = "Оптовая база - Управление товарами";
 
-            // FormMain
+            
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 585);
@@ -355,6 +352,8 @@
             this.statusStrip_RAP.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
+
         }
     
     }

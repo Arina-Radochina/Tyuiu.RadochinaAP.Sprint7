@@ -12,7 +12,6 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5
             InitializeComponent();
             SetupGridView();
 
-            // Подсказки для кнопок
             toolTip.SetToolTip(buttonOpen_RAP, "Открыть CSV файл с товарами");
             toolTip.SetToolTip(buttonSave_RAP, "Сохранить товары в CSV файл");
             toolTip.SetToolTip(buttonDemo_RAP, "Загрузить тестовые данные");
@@ -25,7 +24,6 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5
             toolTip.SetToolTip(buttonHelp_RAP, "Открыть справку");
             toolTip.SetToolTip(buttonAbout_RAP, "О программе");
 
-            // Статус готовности
             statusLabel_RAP.Text = "Готов к работе. Нажмите 'Демо' для тестовых данных.";
         }
 
@@ -94,8 +92,6 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5
                                  $"Файл: {Path.GetFileName(currentFile) ?? "демо данные"}";
         }
 
-        // ========== КНОПКИ ==========
-
         private void buttonOpen_RAP_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
@@ -149,7 +145,6 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5
 
         private void buttonAdd_RAP_Click(object sender, EventArgs e)
         {
-            // Простая форма добавления
             using (Form addForm = new Form())
             {
                 addForm.Text = "Добавить товар";
@@ -174,7 +169,6 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5
                     DecimalPlaces = 2
                 };
 
-                // Автоматический код
                 txtCode.Text = "P" + (products.Count + 101).ToString("000");
 
                 Button btnOK = new Button
@@ -293,7 +287,7 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5
                 "Вариант 5\n\n" +
                 "Разработчик: Радочина А.П.\n" +
                 "Проект: Sprint7.Project.V5\n\n" +
-                "Все права защищены © 2024",
+                "Все права защищены, 2025",
                 "О программе",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
