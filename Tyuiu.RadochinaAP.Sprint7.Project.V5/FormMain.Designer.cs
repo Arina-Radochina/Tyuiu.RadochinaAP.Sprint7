@@ -50,311 +50,332 @@
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.dataGridView_RAP = new System.Windows.Forms.DataGridView();
-            this.panelButtons_RAP = new System.Windows.Forms.Panel();
-            this.buttonOpen_RAP = new System.Windows.Forms.Button();
-            this.buttonSave_RAP = new System.Windows.Forms.Button();
-            this.buttonDemo_RAP = new System.Windows.Forms.Button();
-            this.buttonAdd_RAP = new System.Windows.Forms.Button();
-            this.buttonDelete_RAP = new System.Windows.Forms.Button();
-            this.buttonSortName_RAP = new System.Windows.Forms.Button();
-            this.buttonSortPrice_RAP = new System.Windows.Forms.Button();
-            this.buttonFilter_RAP = new System.Windows.Forms.Button();
-            this.buttonReset_RAP = new System.Windows.Forms.Button();
-            this.buttonHelp_RAP = new System.Windows.Forms.Button();
-            this.buttonAbout_RAP = new System.Windows.Forms.Button();
-            this.buttonExit_RAP = new System.Windows.Forms.Button();
-            this.textBoxSearch_RAP = new System.Windows.Forms.TextBox();
-            this.labelSearch_RAP = new System.Windows.Forms.Label();
-            this.panelStats_RAP = new System.Windows.Forms.Panel();
-            this.labelStatsTitle_RAP = new System.Windows.Forms.Label();
-            this.labelCount_RAP = new System.Windows.Forms.Label();
-            this.labelTotalValue_RAP = new System.Windows.Forms.Label();
-            this.labelAvgPrice_RAP = new System.Windows.Forms.Label();
-            this.labelOutOfStock_RAP = new System.Windows.Forms.Label();
-            this.statusStrip_RAP = new System.Windows.Forms.StatusStrip();
-            this.statusLabel_RAP = new System.Windows.Forms.ToolStripStatusLabel();
-            this.labelTitle_RAP = new System.Windows.Forms.Label();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_RAP)).BeginInit();
-            this.panelButtons_RAP.SuspendLayout();
-            this.panelStats_RAP.SuspendLayout();
-            this.statusStrip_RAP.SuspendLayout();
-            this.SuspendLayout();
-
+            components = new System.ComponentModel.Container();
+            dataGridView_RAP = new DataGridView();
+            panelButtons_RAP = new Panel();
+            buttonExit_RAP = new Button();
+            buttonAbout_RAP = new Button();
+            buttonHelp_RAP = new Button();
+            buttonReset_RAP = new Button();
+            buttonFilter_RAP = new Button();
+            buttonSortPrice_RAP = new Button();
+            buttonSortName_RAP = new Button();
+            buttonDelete_RAP = new Button();
+            buttonAdd_RAP = new Button();
+            buttonDemo_RAP = new Button();
+            buttonSave_RAP = new Button();
+            buttonOpen_RAP = new Button();
+            textBoxSearch_RAP = new TextBox();
+            labelSearch_RAP = new Label();
+            panelStats_RAP = new Panel();
+            labelOutOfStock_RAP = new Label();
+            labelAvgPrice_RAP = new Label();
+            labelTotalValue_RAP = new Label();
+            labelCount_RAP = new Label();
+            labelStatsTitle_RAP = new Label();
+            statusStrip_RAP = new StatusStrip();
+            statusLabel_RAP = new ToolStripStatusLabel();
+            labelTitle_RAP = new Label();
+            toolTip = new ToolTip(components);
+            ((System.ComponentModel.ISupportInitialize)dataGridView_RAP).BeginInit();
+            panelButtons_RAP.SuspendLayout();
+            panelStats_RAP.SuspendLayout();
+            statusStrip_RAP.SuspendLayout();
+            SuspendLayout();
+            // 
             // dataGridView_RAP
-            this.dataGridView_RAP.AllowUserToAddRows = false;
-            this.dataGridView_RAP.AllowUserToDeleteRows = false;
-            this.dataGridView_RAP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_RAP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_RAP.Location = new System.Drawing.Point(12, 40);
-            this.dataGridView_RAP.Name = "dataGridView_RAP";
-            this.dataGridView_RAP.ReadOnly = true;
-            this.dataGridView_RAP.RowHeadersWidth = 62;
-            this.dataGridView_RAP.RowTemplate.Height = 28;
-            this.dataGridView_RAP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_RAP.Size = new System.Drawing.Size(650, 400);
-            this.dataGridView_RAP.TabIndex = 0;
-
+            // 
+            dataGridView_RAP.AllowUserToAddRows = false;
+            dataGridView_RAP.AllowUserToDeleteRows = false;
+            dataGridView_RAP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView_RAP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView_RAP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView_RAP.Location = new Point(11, 40);
+            dataGridView_RAP.Name = "dataGridView_RAP";
+            dataGridView_RAP.ReadOnly = true;
+            dataGridView_RAP.RowHeadersVisible = false;
+            dataGridView_RAP.RowHeadersWidth = 62;
+            dataGridView_RAP.RowTemplate.Height = 28;
+            dataGridView_RAP.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView_RAP.Size = new Size(578, 400);
+            dataGridView_RAP.TabIndex = 0;
+            // 
             // panelButtons_RAP
-            this.panelButtons_RAP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelButtons_RAP.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelButtons_RAP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelButtons_RAP.Controls.Add(this.buttonExit_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonAbout_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonHelp_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonReset_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonFilter_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonSortPrice_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonSortName_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonDelete_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonAdd_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonDemo_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonSave_RAP);
-            this.panelButtons_RAP.Controls.Add(this.buttonOpen_RAP);
-            this.panelButtons_RAP.Location = new System.Drawing.Point(670, 40);
-            this.panelButtons_RAP.Name = "panelButtons_RAP";
-            this.panelButtons_RAP.Size = new System.Drawing.Size(300, 400);
-            this.panelButtons_RAP.TabIndex = 1;
-
-            // buttonOpen_RAP
-            this.buttonOpen_RAP.Location = new System.Drawing.Point(10, 10);
-            this.buttonOpen_RAP.Name = "buttonOpen_RAP";
-            this.buttonOpen_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonOpen_RAP.TabIndex = 0;
-            this.buttonOpen_RAP.Text = "Открыть CSV";
-            this.buttonOpen_RAP.UseVisualStyleBackColor = true;
-            this.buttonOpen_RAP.Click += new System.EventHandler(this.buttonOpen_RAP_Click);
-
-            // buttonSave_RAP
-            this.buttonSave_RAP.Location = new System.Drawing.Point(10, 45);
-            this.buttonSave_RAP.Name = "buttonSave_RAP";
-            this.buttonSave_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonSave_RAP.TabIndex = 1;
-            this.buttonSave_RAP.Text = "Сохранить CSV";
-            this.buttonSave_RAP.UseVisualStyleBackColor = true;
-            this.buttonSave_RAP.Click += new System.EventHandler(this.buttonSave_RAP_Click);
-
-            // buttonDemo_RAP
-            this.buttonDemo_RAP.Location = new System.Drawing.Point(10, 80);
-            this.buttonDemo_RAP.Name = "buttonDemo_RAP";
-            this.buttonDemo_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonDemo_RAP.TabIndex = 2;
-            this.buttonDemo_RAP.Text = "Демо данные";
-            this.buttonDemo_RAP.UseVisualStyleBackColor = true;
-            this.buttonDemo_RAP.Click += new System.EventHandler(this.buttonDemo_RAP_Click);
-
-            // buttonAdd_RAP
-            this.buttonAdd_RAP.Location = new System.Drawing.Point(10, 115);
-            this.buttonAdd_RAP.Name = "buttonAdd_RAP";
-            this.buttonAdd_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonAdd_RAP.TabIndex = 3;
-            this.buttonAdd_RAP.Text = "Добавить товар";
-            this.buttonAdd_RAP.UseVisualStyleBackColor = true;
-            this.buttonAdd_RAP.Click += new System.EventHandler(this.buttonAdd_RAP_Click);
-
-            // buttonDelete_RAP
-            this.buttonDelete_RAP.Location = new System.Drawing.Point(10, 150);
-            this.buttonDelete_RAP.Name = "buttonDelete_RAP";
-            this.buttonDelete_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonDelete_RAP.TabIndex = 4;
-            this.buttonDelete_RAP.Text = "Удалить товар";
-            this.buttonDelete_RAP.UseVisualStyleBackColor = true;
-            this.buttonDelete_RAP.Click += new System.EventHandler(this.buttonDelete_RAP_Click);
-
-            // buttonSortName_RAP
-            this.buttonSortName_RAP.Location = new System.Drawing.Point(10, 185);
-            this.buttonSortName_RAP.Name = "buttonSortName_RAP";
-            this.buttonSortName_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonSortName_RAP.TabIndex = 5;
-            this.buttonSortName_RAP.Text = "Сортировать по названию";
-            this.buttonSortName_RAP.UseVisualStyleBackColor = true;
-            this.buttonSortName_RAP.Click += new System.EventHandler(this.buttonSortName_RAP_Click);
-
-            // buttonSortPrice_RAP
-            this.buttonSortPrice_RAP.Location = new System.Drawing.Point(10, 220);
-            this.buttonSortPrice_RAP.Name = "buttonSortPrice_RAP";
-            this.buttonSortPrice_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonSortPrice_RAP.TabIndex = 6;
-            this.buttonSortPrice_RAP.Text = "Сортировать по цене";
-            this.buttonSortPrice_RAP.UseVisualStyleBackColor = true;
-            this.buttonSortPrice_RAP.Click += new System.EventHandler(this.buttonSortPrice_RAP_Click);
-
-            // buttonFilter_RAP
-            this.buttonFilter_RAP.Location = new System.Drawing.Point(10, 255);
-            this.buttonFilter_RAP.Name = "buttonFilter_RAP";
-            this.buttonFilter_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonFilter_RAP.TabIndex = 7;
-            this.buttonFilter_RAP.Text = "Только в наличии";
-            this.buttonFilter_RAP.UseVisualStyleBackColor = true;
-            this.buttonFilter_RAP.Click += new System.EventHandler(this.buttonFilter_RAP_Click);
-
-            // buttonReset_RAP
-            this.buttonReset_RAP.Location = new System.Drawing.Point(10, 290);
-            this.buttonReset_RAP.Name = "buttonReset_RAP";
-            this.buttonReset_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonReset_RAP.TabIndex = 8;
-            this.buttonReset_RAP.Text = "Сбросить фильтры";
-            this.buttonReset_RAP.UseVisualStyleBackColor = true;
-            this.buttonReset_RAP.Click += new System.EventHandler(this.buttonReset_RAP_Click);
-
-            // buttonHelp_RAP
-            this.buttonHelp_RAP.Location = new System.Drawing.Point(10, 325);
-            this.buttonHelp_RAP.Name = "buttonHelp_RAP";
-            this.buttonHelp_RAP.Size = new System.Drawing.Size(280, 30);
-            this.buttonHelp_RAP.TabIndex = 9;
-            this.buttonHelp_RAP.Text = "Справка";
-            this.buttonHelp_RAP.UseVisualStyleBackColor = true;
-            this.buttonHelp_RAP.Click += new System.EventHandler(this.buttonHelp_RAP_Click);
-
-            // buttonAbout_RAP
-            this.buttonAbout_RAP.Location = new System.Drawing.Point(10, 360);
-            this.buttonAbout_RAP.Name = "buttonAbout_RAP";
-            this.buttonAbout_RAP.Size = new System.Drawing.Size(135, 30);
-            this.buttonAbout_RAP.TabIndex = 10;
-            this.buttonAbout_RAP.Text = "О программе";
-            this.buttonAbout_RAP.UseVisualStyleBackColor = true;
-            this.buttonAbout_RAP.Click += new System.EventHandler(this.buttonAbout_RAP_Click);
-
+            // 
+            panelButtons_RAP.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panelButtons_RAP.BackColor = SystemColors.ControlLight;
+            panelButtons_RAP.BorderStyle = BorderStyle.FixedSingle;
+            panelButtons_RAP.Controls.Add(buttonExit_RAP);
+            panelButtons_RAP.Controls.Add(buttonAbout_RAP);
+            panelButtons_RAP.Controls.Add(buttonHelp_RAP);
+            panelButtons_RAP.Controls.Add(buttonReset_RAP);
+            panelButtons_RAP.Controls.Add(buttonFilter_RAP);
+            panelButtons_RAP.Controls.Add(buttonSortPrice_RAP);
+            panelButtons_RAP.Controls.Add(buttonSortName_RAP);
+            panelButtons_RAP.Controls.Add(buttonDelete_RAP);
+            panelButtons_RAP.Controls.Add(buttonAdd_RAP);
+            panelButtons_RAP.Controls.Add(buttonDemo_RAP);
+            panelButtons_RAP.Controls.Add(buttonSave_RAP);
+            panelButtons_RAP.Controls.Add(buttonOpen_RAP);
+            panelButtons_RAP.Location = new Point(596, 40);
+            panelButtons_RAP.Name = "panelButtons_RAP";
+            panelButtons_RAP.Size = new Size(267, 400);
+            panelButtons_RAP.TabIndex = 1;
+            // 
             // buttonExit_RAP
-            this.buttonExit_RAP.Location = new System.Drawing.Point(155, 360);
-            this.buttonExit_RAP.Name = "buttonExit_RAP";
-            this.buttonExit_RAP.Size = new System.Drawing.Size(135, 30);
-            this.buttonExit_RAP.TabIndex = 11;
-            this.buttonExit_RAP.Text = "Выход";
-            this.buttonExit_RAP.UseVisualStyleBackColor = true;
-            this.buttonExit_RAP.Click += new System.EventHandler(this.buttonExit_RAP_Click);
-
+            // 
+            buttonExit_RAP.Location = new Point(138, 360);
+            buttonExit_RAP.Name = "buttonExit_RAP";
+            buttonExit_RAP.Size = new Size(120, 30);
+            buttonExit_RAP.TabIndex = 11;
+            buttonExit_RAP.Text = "Выход";
+            buttonExit_RAP.UseVisualStyleBackColor = true;
+            buttonExit_RAP.Click += buttonExit_RAP_Click;
+            // 
+            // buttonAbout_RAP
+            // 
+            buttonAbout_RAP.Location = new Point(9, 360);
+            buttonAbout_RAP.Name = "buttonAbout_RAP";
+            buttonAbout_RAP.Size = new Size(120, 30);
+            buttonAbout_RAP.TabIndex = 10;
+            buttonAbout_RAP.Text = "О программе";
+            buttonAbout_RAP.UseVisualStyleBackColor = true;
+            buttonAbout_RAP.Click += buttonAbout_RAP_Click;
+            // 
+            // buttonHelp_RAP
+            // 
+            buttonHelp_RAP.Location = new Point(9, 325);
+            buttonHelp_RAP.Name = "buttonHelp_RAP";
+            buttonHelp_RAP.Size = new Size(249, 30);
+            buttonHelp_RAP.TabIndex = 9;
+            buttonHelp_RAP.Text = "Справка";
+            buttonHelp_RAP.UseVisualStyleBackColor = true;
+            buttonHelp_RAP.Click += buttonHelp_RAP_Click;
+            // 
+            // buttonReset_RAP
+            // 
+            buttonReset_RAP.Location = new Point(9, 290);
+            buttonReset_RAP.Name = "buttonReset_RAP";
+            buttonReset_RAP.Size = new Size(249, 30);
+            buttonReset_RAP.TabIndex = 8;
+            buttonReset_RAP.Text = "Сбросить фильтры";
+            buttonReset_RAP.UseVisualStyleBackColor = true;
+            buttonReset_RAP.Click += buttonReset_RAP_Click;
+            // 
+            // buttonFilter_RAP
+            // 
+            buttonFilter_RAP.Location = new Point(9, 255);
+            buttonFilter_RAP.Name = "buttonFilter_RAP";
+            buttonFilter_RAP.Size = new Size(249, 30);
+            buttonFilter_RAP.TabIndex = 7;
+            buttonFilter_RAP.Text = "Только в наличии";
+            buttonFilter_RAP.UseVisualStyleBackColor = true;
+            buttonFilter_RAP.Click += buttonFilter_RAP_Click;
+            // 
+            // buttonSortPrice_RAP
+            // 
+            buttonSortPrice_RAP.Location = new Point(9, 220);
+            buttonSortPrice_RAP.Name = "buttonSortPrice_RAP";
+            buttonSortPrice_RAP.Size = new Size(249, 30);
+            buttonSortPrice_RAP.TabIndex = 6;
+            buttonSortPrice_RAP.Text = "Сортировать по цене";
+            buttonSortPrice_RAP.UseVisualStyleBackColor = true;
+            buttonSortPrice_RAP.Click += buttonSortPrice_RAP_Click;
+            // 
+            // buttonSortName_RAP
+            // 
+            buttonSortName_RAP.Location = new Point(9, 185);
+            buttonSortName_RAP.Name = "buttonSortName_RAP";
+            buttonSortName_RAP.Size = new Size(249, 30);
+            buttonSortName_RAP.TabIndex = 5;
+            buttonSortName_RAP.Text = "Сортировать по названию";
+            buttonSortName_RAP.UseVisualStyleBackColor = true;
+            buttonSortName_RAP.Click += buttonSortName_RAP_Click;
+            // 
+            // buttonDelete_RAP
+            // 
+            buttonDelete_RAP.Location = new Point(9, 150);
+            buttonDelete_RAP.Name = "buttonDelete_RAP";
+            buttonDelete_RAP.Size = new Size(249, 30);
+            buttonDelete_RAP.TabIndex = 4;
+            buttonDelete_RAP.Text = "Удалить товар";
+            buttonDelete_RAP.UseVisualStyleBackColor = true;
+            buttonDelete_RAP.Click += buttonDelete_RAP_Click;
+            // 
+            // buttonAdd_RAP
+            // 
+            buttonAdd_RAP.Location = new Point(9, 115);
+            buttonAdd_RAP.Name = "buttonAdd_RAP";
+            buttonAdd_RAP.Size = new Size(249, 30);
+            buttonAdd_RAP.TabIndex = 3;
+            buttonAdd_RAP.Text = "Добавить товар";
+            buttonAdd_RAP.UseVisualStyleBackColor = true;
+            buttonAdd_RAP.Click += buttonAdd_RAP_Click;
+            // 
+            // buttonDemo_RAP
+            // 
+            buttonDemo_RAP.Location = new Point(9, 80);
+            buttonDemo_RAP.Name = "buttonDemo_RAP";
+            buttonDemo_RAP.Size = new Size(249, 30);
+            buttonDemo_RAP.TabIndex = 2;
+            buttonDemo_RAP.Text = "Демо данные";
+            buttonDemo_RAP.UseVisualStyleBackColor = true;
+            buttonDemo_RAP.Click += buttonDemo_RAP_Click;
+            // 
+            // buttonSave_RAP
+            // 
+            buttonSave_RAP.Location = new Point(9, 45);
+            buttonSave_RAP.Name = "buttonSave_RAP";
+            buttonSave_RAP.Size = new Size(249, 30);
+            buttonSave_RAP.TabIndex = 1;
+            buttonSave_RAP.Text = "Сохранить CSV";
+            buttonSave_RAP.UseVisualStyleBackColor = true;
+            buttonSave_RAP.Click += buttonSave_RAP_Click;
+            // 
+            // buttonOpen_RAP
+            // 
+            buttonOpen_RAP.Location = new Point(9, 10);
+            buttonOpen_RAP.Name = "buttonOpen_RAP";
+            buttonOpen_RAP.Size = new Size(249, 30);
+            buttonOpen_RAP.TabIndex = 0;
+            buttonOpen_RAP.Text = "Открыть CSV";
+            buttonOpen_RAP.UseVisualStyleBackColor = true;
+            buttonOpen_RAP.Click += buttonOpen_RAP_Click;
+            // 
             // textBoxSearch_RAP
-            this.textBoxSearch_RAP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearch_RAP.Location = new System.Drawing.Point(70, 445);
-            this.textBoxSearch_RAP.Name = "textBoxSearch_RAP";
-            this.textBoxSearch_RAP.Size = new System.Drawing.Size(592, 26);
-            this.textBoxSearch_RAP.TabIndex = 2;
-            this.textBoxSearch_RAP.TextChanged += new System.EventHandler(this.textBoxSearch_RAP_TextChanged);
-
+            // 
+            textBoxSearch_RAP.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxSearch_RAP.Location = new Point(62, 445);
+            textBoxSearch_RAP.Name = "textBoxSearch_RAP";
+            textBoxSearch_RAP.Size = new Size(527, 27);
+            textBoxSearch_RAP.TabIndex = 2;
+            textBoxSearch_RAP.TextChanged += textBoxSearch_RAP_TextChanged;
+            // 
             // labelSearch_RAP
-            this.labelSearch_RAP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelSearch_RAP.AutoSize = true;
-            this.labelSearch_RAP.Location = new System.Drawing.Point(12, 448);
-            this.labelSearch_RAP.Name = "labelSearch_RAP";
-            this.labelSearch_RAP.Size = new System.Drawing.Size(52, 20);
-            this.labelSearch_RAP.TabIndex = 3;
-            this.labelSearch_RAP.Text = "Поиск:";
-
+            // 
+            labelSearch_RAP.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            labelSearch_RAP.AutoSize = true;
+            labelSearch_RAP.Location = new Point(11, 448);
+            labelSearch_RAP.Name = "labelSearch_RAP";
+            labelSearch_RAP.Size = new Size(55, 20);
+            labelSearch_RAP.TabIndex = 3;
+            labelSearch_RAP.Text = "Поиск:";
+            // 
             // panelStats_RAP
-            this.panelStats_RAP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelStats_RAP.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelStats_RAP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelStats_RAP.Controls.Add(this.labelOutOfStock_RAP);
-            this.panelStats_RAP.Controls.Add(this.labelAvgPrice_RAP);
-            this.panelStats_RAP.Controls.Add(this.labelTotalValue_RAP);
-            this.panelStats_RAP.Controls.Add(this.labelCount_RAP);
-            this.panelStats_RAP.Controls.Add(this.labelStatsTitle_RAP);
-            this.panelStats_RAP.Location = new System.Drawing.Point(12, 480);
-            this.panelStats_RAP.Name = "panelStats_RAP";
-            this.panelStats_RAP.Size = new System.Drawing.Size(958, 70);
-            this.panelStats_RAP.TabIndex = 4;
-
-            // labelStatsTitle_RAP
-            this.labelStatsTitle_RAP.AutoSize = true;
-            this.labelStatsTitle_RAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelStatsTitle_RAP.Location = new System.Drawing.Point(10, 10);
-            this.labelStatsTitle_RAP.Name = "labelStatsTitle_RAP";
-            this.labelStatsTitle_RAP.Size = new System.Drawing.Size(110, 22);
-            this.labelStatsTitle_RAP.TabIndex = 0;
-            this.labelStatsTitle_RAP.Text = "Статистика:";
-
-            // labelCount_RAP
-            this.labelCount_RAP.AutoSize = true;
-            this.labelCount_RAP.Location = new System.Drawing.Point(150, 10);
-            this.labelCount_RAP.Name = "labelCount_RAP";
-            this.labelCount_RAP.Size = new System.Drawing.Size(94, 20);
-            this.labelCount_RAP.TabIndex = 1;
-            this.labelCount_RAP.Text = "Товаров: 0";
-
-            // labelTotalValue_RAP
-            this.labelTotalValue_RAP.AutoSize = true;
-            this.labelTotalValue_RAP.Location = new System.Drawing.Point(150, 30);
-            this.labelTotalValue_RAP.Name = "labelTotalValue_RAP";
-            this.labelTotalValue_RAP.Size = new System.Drawing.Size(154, 20);
-            this.labelTotalValue_RAP.TabIndex = 2;
-            this.labelTotalValue_RAP.Text = "Общая стоимость: 0";
-
-            // labelAvgPrice_RAP
-            this.labelAvgPrice_RAP.AutoSize = true;
-            this.labelAvgPrice_RAP.Location = new System.Drawing.Point(400, 10);
-            this.labelAvgPrice_RAP.Name = "labelAvgPrice_RAP";
-            this.labelAvgPrice_RAP.Size = new System.Drawing.Size(128, 20);
-            this.labelAvgPrice_RAP.TabIndex = 3;
-            this.labelAvgPrice_RAP.Text = "Средняя цена: 0";
-
+            // 
+            panelStats_RAP.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelStats_RAP.BackColor = SystemColors.ControlLight;
+            panelStats_RAP.BorderStyle = BorderStyle.FixedSingle;
+            panelStats_RAP.Controls.Add(labelOutOfStock_RAP);
+            panelStats_RAP.Controls.Add(labelAvgPrice_RAP);
+            panelStats_RAP.Controls.Add(labelTotalValue_RAP);
+            panelStats_RAP.Controls.Add(labelCount_RAP);
+            panelStats_RAP.Controls.Add(labelStatsTitle_RAP);
+            panelStats_RAP.Location = new Point(11, 480);
+            panelStats_RAP.Name = "panelStats_RAP";
+            panelStats_RAP.Size = new Size(852, 70);
+            panelStats_RAP.TabIndex = 4;
+            // 
             // labelOutOfStock_RAP
-            this.labelOutOfStock_RAP.AutoSize = true;
-            this.labelOutOfStock_RAP.Location = new System.Drawing.Point(400, 30);
-            this.labelOutOfStock_RAP.Name = "labelOutOfStock_RAP";
-            this.labelOutOfStock_RAP.Size = new System.Drawing.Size(133, 20);
-            this.labelOutOfStock_RAP.TabIndex = 4;
-            this.labelOutOfStock_RAP.Text = "Нет в наличии: 0";
-
+            // 
+            labelOutOfStock_RAP.AutoSize = true;
+            labelOutOfStock_RAP.Location = new Point(356, 30);
+            labelOutOfStock_RAP.Name = "labelOutOfStock_RAP";
+            labelOutOfStock_RAP.Size = new Size(125, 20);
+            labelOutOfStock_RAP.TabIndex = 4;
+            labelOutOfStock_RAP.Text = "Нет в наличии: 0";
+            // 
+            // labelAvgPrice_RAP
+            // 
+            labelAvgPrice_RAP.AutoSize = true;
+            labelAvgPrice_RAP.Location = new Point(356, 10);
+            labelAvgPrice_RAP.Name = "labelAvgPrice_RAP";
+            labelAvgPrice_RAP.Size = new Size(121, 20);
+            labelAvgPrice_RAP.TabIndex = 3;
+            labelAvgPrice_RAP.Text = "Средняя цена: 0";
+            // 
+            // labelTotalValue_RAP
+            // 
+            labelTotalValue_RAP.AutoSize = true;
+            labelTotalValue_RAP.Location = new Point(133, 30);
+            labelTotalValue_RAP.Name = "labelTotalValue_RAP";
+            labelTotalValue_RAP.Size = new Size(148, 20);
+            labelTotalValue_RAP.TabIndex = 2;
+            labelTotalValue_RAP.Text = "Общая стоимость: 0";
+            // 
+            // labelCount_RAP
+            // 
+            labelCount_RAP.AutoSize = true;
+            labelCount_RAP.Location = new Point(133, 10);
+            labelCount_RAP.Name = "labelCount_RAP";
+            labelCount_RAP.Size = new Size(83, 20);
+            labelCount_RAP.TabIndex = 1;
+            labelCount_RAP.Text = "Товаров: 0";
+            // 
+            // labelStatsTitle_RAP
+            // 
+            labelStatsTitle_RAP.AutoSize = true;
+            labelStatsTitle_RAP.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelStatsTitle_RAP.Location = new Point(9, 10);
+            labelStatsTitle_RAP.Name = "labelStatsTitle_RAP";
+            labelStatsTitle_RAP.Size = new Size(103, 18);
+            labelStatsTitle_RAP.TabIndex = 0;
+            labelStatsTitle_RAP.Text = "Статистика:";
+            // 
             // statusStrip_RAP
-            this.statusStrip_RAP.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip_RAP.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel_RAP});
-            this.statusStrip_RAP.Location = new System.Drawing.Point(0, 553);
-            this.statusStrip_RAP.Name = "statusStrip_RAP";
-            this.statusStrip_RAP.Size = new System.Drawing.Size(982, 32);
-            this.statusStrip_RAP.TabIndex = 5;
-            this.statusStrip_RAP.Text = "statusStrip_RAP";
-
+            // 
+            statusStrip_RAP.ImageScalingSize = new Size(24, 24);
+            statusStrip_RAP.Items.AddRange(new ToolStripItem[] { statusLabel_RAP });
+            statusStrip_RAP.Location = new Point(0, 567);
+            statusStrip_RAP.Name = "statusStrip_RAP";
+            statusStrip_RAP.Padding = new Padding(1, 0, 12, 0);
+            statusStrip_RAP.Size = new Size(873, 26);
+            statusStrip_RAP.TabIndex = 5;
+            statusStrip_RAP.Text = "statusStrip_RAP";
+            // 
             // statusLabel_RAP
-            this.statusLabel_RAP.Name = "statusLabel_RAP";
-            this.statusLabel_RAP.Size = new System.Drawing.Size(170, 25);
-            this.statusLabel_RAP.Text = "Готов к работе...";
-
+            // 
+            statusLabel_RAP.Name = "statusLabel_RAP";
+            statusLabel_RAP.Size = new Size(121, 20);
+            statusLabel_RAP.Text = "Готов к работе...";
+            // 
             // labelTitle_RAP
-            this.labelTitle_RAP.AutoSize = true;
-            this.labelTitle_RAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTitle_RAP.Location = new System.Drawing.Point(12, 9);
-            this.labelTitle_RAP.Name = "labelTitle_RAP";
-            this.labelTitle_RAP.Size = new System.Drawing.Size(354, 25);
-            this.labelTitle_RAP.TabIndex = 6;
-            this.labelTitle_RAP.Text = "Оптовая база - Управление товарами";
-
-            
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 585);
-            this.Controls.Add(this.labelTitle_RAP);
-            this.Controls.Add(this.statusStrip_RAP);
-            this.Controls.Add(this.panelStats_RAP);
-            this.Controls.Add(this.labelSearch_RAP);
-            this.Controls.Add(this.textBoxSearch_RAP);
-            this.Controls.Add(this.panelButtons_RAP);
-            this.Controls.Add(this.dataGridView_RAP);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1000, 640);
-            this.Name = "FormMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Оптовая база - Вариант 5 (Радочина А.П.)";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_RAP)).EndInit();
-            this.panelButtons_RAP.ResumeLayout(false);
-            this.panelStats_RAP.ResumeLayout(false);
-            this.panelStats_RAP.PerformLayout();
-            this.statusStrip_RAP.ResumeLayout(false);
-            this.statusStrip_RAP.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            labelTitle_RAP.AutoSize = true;
+            labelTitle_RAP.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelTitle_RAP.Location = new Point(11, 9);
+            labelTitle_RAP.Name = "labelTitle_RAP";
+            labelTitle_RAP.Size = new Size(364, 20);
+            labelTitle_RAP.TabIndex = 6;
+            labelTitle_RAP.Text = "Оптовая база - Управление товарами";
+            // 
+            // FormMain
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(873, 593);
+            Controls.Add(labelTitle_RAP);
+            Controls.Add(statusStrip_RAP);
+            Controls.Add(panelStats_RAP);
+            Controls.Add(labelSearch_RAP);
+            Controls.Add(textBoxSearch_RAP);
+            Controls.Add(panelButtons_RAP);
+            Controls.Add(dataGridView_RAP);
+            MinimumSize = new Size(891, 640);
+            Name = "FormMain";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Оптовая база - Вариант 5 (Радочина А.П.)";
+            ((System.ComponentModel.ISupportInitialize)dataGridView_RAP).EndInit();
+            panelButtons_RAP.ResumeLayout(false);
+            panelStats_RAP.ResumeLayout(false);
+            panelStats_RAP.PerformLayout();
+            statusStrip_RAP.ResumeLayout(false);
+            statusStrip_RAP.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
 
         }
-    
+
     }
 }
