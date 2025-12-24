@@ -265,7 +265,7 @@ namespace Tyuiu.RadochinaAP.Sprint7.Project.V5
         private void buttonHelp_RAP_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
-                "=== –” ќ¬ќƒ—“¬ќ ѕќЋ№«ќ¬ј“≈Ћя ===\n\n" +
+                " –уководство пользовател€ \n\n" +
                 "1. ќткрыть - загрузить товары из CSV файла\n" +
                 "2. —охранить - сохранить в CSV файл\n" +
                 "3. ƒемо - тестовые данные\n" +
